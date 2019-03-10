@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 namespace ProfessorSquish.Components.Utilities
 {
-    public class Wander : MonoBehaviour
+    public class Wander 
     {
 
         /// <summary>

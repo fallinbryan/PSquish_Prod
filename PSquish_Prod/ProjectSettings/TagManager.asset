@@ -3,7 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - SpawnPoint
+  - Enemy
+  - Bullet
+  - Ammo
+  - Health
+  - FlameFuelTank
+  - TeslaCoil
+  - AcidFuelTank
+  - Igniter
+  - BatteryPack
+  - PatrolPoint
+  - WeaponBase
+  - WeaponAcid
+  - WeaponFlame
+  - WeaponTesla
+  - EnemyBullet
+  - Muzzle
   layers:
   - Default
   - TransparentFX
@@ -40,4 +57,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Layer1
+    uniqueID: 2562131481
     locked: 0
