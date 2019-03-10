@@ -39,7 +39,7 @@ namespace ProfessorSquish.Characters.Enemies
 
         // Start is called before the first frame update
 
-        private void Awake()
+        void Awake()
         {
             scoreManager = GetComponent<ScoreManager>();
         }

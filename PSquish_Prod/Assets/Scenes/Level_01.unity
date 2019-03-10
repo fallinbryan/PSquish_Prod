@@ -12796,6 +12796,11 @@ PrefabInstance:
       propertyPath: Lightning
       value: 
       objectReference: {fileID: 911640723}
+    - target: {fileID: 176738440567258422, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 576977584290664299, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12910,11 +12915,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Bullet
-      objectReference: {fileID: 0}
-    - target: {fileID: 176738440567258422, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
-        type: 3}
-      propertyPath: CollisionModule.collisionMessages
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a1239cff7b2d604399a1b2d7cd157d1, type: 3}

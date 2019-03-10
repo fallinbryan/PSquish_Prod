@@ -6,6 +6,7 @@ public class ScoreManager : MonoBehaviour
 {
 
     private GameObject scoreCounter;
+    int score = 0;
 
     void Start()
     {
