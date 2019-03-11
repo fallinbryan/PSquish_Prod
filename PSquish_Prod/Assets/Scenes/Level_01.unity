@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6956,16 +6956,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 820828862}
     m_Modifications:
-    - target: {fileID: 2812980153760015236, guid: 3527cc086aea7fb4caded6d8dbd75907,
-        type: 3}
-      propertyPath: m_Name
-      value: TeslaCoil
-      objectReference: {fileID: 0}
-    - target: {fileID: 2812980153760015236, guid: 3527cc086aea7fb4caded6d8dbd75907,
-        type: 3}
-      propertyPath: m_TagString
-      value: TeslaCoil
-      objectReference: {fileID: 0}
     - target: {fileID: 2812980153759661988, guid: 3527cc086aea7fb4caded6d8dbd75907,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7035,6 +7025,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 78.35003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812980153760015236, guid: 3527cc086aea7fb4caded6d8dbd75907,
+        type: 3}
+      propertyPath: m_Name
+      value: TeslaCoil
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812980153760015236, guid: 3527cc086aea7fb4caded6d8dbd75907,
+        type: 3}
+      propertyPath: m_TagString
+      value: TeslaCoil
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3527cc086aea7fb4caded6d8dbd75907, type: 3}
@@ -7119,16 +7119,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2812980153760015236, guid: 3527cc086aea7fb4caded6d8dbd75907,
-        type: 3}
-      propertyPath: m_Name
-      value: TeslaCoil
-      objectReference: {fileID: 0}
-    - target: {fileID: 2812980153760015236, guid: 3527cc086aea7fb4caded6d8dbd75907,
-        type: 3}
-      propertyPath: m_TagString
-      value: TeslaCoil
-      objectReference: {fileID: 0}
     - target: {fileID: 2812980153759661988, guid: 3527cc086aea7fb4caded6d8dbd75907,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7198,6 +7188,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 44.518513
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812980153760015236, guid: 3527cc086aea7fb4caded6d8dbd75907,
+        type: 3}
+      propertyPath: m_Name
+      value: TeslaCoil
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812980153760015236, guid: 3527cc086aea7fb4caded6d8dbd75907,
+        type: 3}
+      propertyPath: m_TagString
+      value: TeslaCoil
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3527cc086aea7fb4caded6d8dbd75907, type: 3}
@@ -7338,16 +7338,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 820828862}
     m_Modifications:
-    - target: {fileID: 3043387113711158244, guid: 7ac8c647068283c4ca6d9f8bf1f2ed30,
-        type: 3}
-      propertyPath: m_Name
-      value: BatteryPack
-      objectReference: {fileID: 0}
-    - target: {fileID: 3043387113711158244, guid: 7ac8c647068283c4ca6d9f8bf1f2ed30,
-        type: 3}
-      propertyPath: m_TagString
-      value: BatteryPack
-      objectReference: {fileID: 0}
     - target: {fileID: 3043387113711525828, guid: 7ac8c647068283c4ca6d9f8bf1f2ed30,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7417,6 +7407,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 9.512958
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043387113711158244, guid: 7ac8c647068283c4ca6d9f8bf1f2ed30,
+        type: 3}
+      propertyPath: m_Name
+      value: BatteryPack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043387113711158244, guid: 7ac8c647068283c4ca6d9f8bf1f2ed30,
+        type: 3}
+      propertyPath: m_TagString
+      value: BatteryPack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ac8c647068283c4ca6d9f8bf1f2ed30, type: 3}
@@ -8491,16 +8491,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1692633510537370822, guid: 2c2edf743b82a60489a63e3da2985ce1,
-        type: 3}
-      propertyPath: m_Name
-      value: FlameFuelTank
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692633510537370822, guid: 2c2edf743b82a60489a63e3da2985ce1,
-        type: 3}
-      propertyPath: m_TagString
-      value: FlameFuelTank
-      objectReference: {fileID: 0}
     - target: {fileID: 1692633510537789670, guid: 2c2edf743b82a60489a63e3da2985ce1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8571,6 +8561,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 24.022158
       objectReference: {fileID: 0}
+    - target: {fileID: 1692633510537370822, guid: 2c2edf743b82a60489a63e3da2985ce1,
+        type: 3}
+      propertyPath: m_Name
+      value: FlameFuelTank
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692633510537370822, guid: 2c2edf743b82a60489a63e3da2985ce1,
+        type: 3}
+      propertyPath: m_TagString
+      value: FlameFuelTank
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c2edf743b82a60489a63e3da2985ce1, type: 3}
 --- !u!1001 &1477497840
@@ -8580,16 +8580,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1692633510537370822, guid: 2c2edf743b82a60489a63e3da2985ce1,
-        type: 3}
-      propertyPath: m_Name
-      value: FlameFuelTank (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692633510537370822, guid: 2c2edf743b82a60489a63e3da2985ce1,
-        type: 3}
-      propertyPath: m_TagString
-      value: FlameFuelTank
-      objectReference: {fileID: 0}
     - target: {fileID: 1692633510537789670, guid: 2c2edf743b82a60489a63e3da2985ce1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8659,6 +8649,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 46.924
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692633510537370822, guid: 2c2edf743b82a60489a63e3da2985ce1,
+        type: 3}
+      propertyPath: m_Name
+      value: FlameFuelTank (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692633510537370822, guid: 2c2edf743b82a60489a63e3da2985ce1,
+        type: 3}
+      propertyPath: m_TagString
+      value: FlameFuelTank
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c2edf743b82a60489a63e3da2985ce1, type: 3}
@@ -9836,16 +9836,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3043387113711158244, guid: 7ac8c647068283c4ca6d9f8bf1f2ed30,
-        type: 3}
-      propertyPath: m_Name
-      value: BatteryPack
-      objectReference: {fileID: 0}
-    - target: {fileID: 3043387113711158244, guid: 7ac8c647068283c4ca6d9f8bf1f2ed30,
-        type: 3}
-      propertyPath: m_TagString
-      value: BatteryPack
-      objectReference: {fileID: 0}
     - target: {fileID: 3043387113711525828, guid: 7ac8c647068283c4ca6d9f8bf1f2ed30,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9915,6 +9905,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 11.9711895
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043387113711158244, guid: 7ac8c647068283c4ca6d9f8bf1f2ed30,
+        type: 3}
+      propertyPath: m_Name
+      value: BatteryPack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043387113711158244, guid: 7ac8c647068283c4ca6d9f8bf1f2ed30,
+        type: 3}
+      propertyPath: m_TagString
+      value: BatteryPack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ac8c647068283c4ca6d9f8bf1f2ed30, type: 3}
@@ -12760,47 +12760,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PSQuish_Weapons
       objectReference: {fileID: 0}
-    - target: {fileID: 5478942974544866358, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
-        type: 3}
-      propertyPath: Projectile
-      value: 
-      objectReference: {fileID: 8577956518766199136, guid: a53a29799c2a63c439b02684fc0b8db5,
-        type: 3}
-    - target: {fileID: 5478942974544866358, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
-        type: 3}
-      propertyPath: projectileVelocity
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5478942974544866358, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
-        type: 3}
-      propertyPath: attackDelta
-      value: 0.323
-      objectReference: {fileID: 0}
-    - target: {fileID: 5478942974544866358, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
-        type: 3}
-      propertyPath: ammoSlider
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5478942974544866358, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
-        type: 3}
-      propertyPath: expSlider
-      value: 
-      objectReference: {fileID: 961384154}
-    - target: {fileID: 5478942974544866358, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
-        type: 3}
-      propertyPath: WeaponAmmo
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5478942974544866358, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
-        type: 3}
-      propertyPath: Lightning
-      value: 
-      objectReference: {fileID: 911640723}
-    - target: {fileID: 176738440567258422, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
-        type: 3}
-      propertyPath: CollisionModule.collisionMessages
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 576977584290664299, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12856,6 +12815,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -143.12201
       objectReference: {fileID: 0}
+    - target: {fileID: 5478942974544866358, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
+        type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 8577956518766199136, guid: a53a29799c2a63c439b02684fc0b8db5,
+        type: 3}
+    - target: {fileID: 5478942974544866358, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
+        type: 3}
+      propertyPath: projectileVelocity
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478942974544866358, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
+        type: 3}
+      propertyPath: attackDelta
+      value: 0.323
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478942974544866358, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
+        type: 3}
+      propertyPath: ammoSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478942974544866358, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
+        type: 3}
+      propertyPath: expSlider
+      value: 
+      objectReference: {fileID: 961384154}
+    - target: {fileID: 5478942974544866358, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
+        type: 3}
+      propertyPath: WeaponAmmo
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478942974544866358, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
+        type: 3}
+      propertyPath: Lightning
+      value: 
+      objectReference: {fileID: 911640723}
+    - target: {fileID: 4277771940609356309, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277771940609356309, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277771940609356309, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.34
+      objectReference: {fileID: 0}
     - target: {fileID: 1219674240702063270, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12896,25 +12906,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 172.201
       objectReference: {fileID: 0}
-    - target: {fileID: 4277771940609356309, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 4277771940609356309, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 4277771940609356309, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.34
-      objectReference: {fileID: 0}
     - target: {fileID: 5719638525810610969, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
         type: 3}
       propertyPath: m_TagString
       value: Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 176738440567258422, guid: 0a1239cff7b2d604399a1b2d7cd157d1,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a1239cff7b2d604399a1b2d7cd157d1, type: 3}
@@ -13019,21 +13019,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2256604568118988487, guid: 62b9c2587851c92419697b09c5381cc8,
-        type: 3}
-      propertyPath: muzzle
-      value: 
-      objectReference: {fileID: 8085211801834708185}
-    - target: {fileID: 2256604568118988487, guid: 62b9c2587851c92419697b09c5381cc8,
-        type: 3}
-      propertyPath: WeaponController
-      value: 
-      objectReference: {fileID: 14024815}
-    - target: {fileID: 2256604568118988487, guid: 62b9c2587851c92419697b09c5381cc8,
-        type: 3}
-      propertyPath: rotateSpeed
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 3788012502844111918, guid: 62b9c2587851c92419697b09c5381cc8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13099,6 +13084,26 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 4f56ba4c2732d1642ad73911b812b6d2, type: 2}
+    - target: {fileID: 2256604568118988487, guid: 62b9c2587851c92419697b09c5381cc8,
+        type: 3}
+      propertyPath: muzzle
+      value: 
+      objectReference: {fileID: 8085211801834708185}
+    - target: {fileID: 2256604568118988487, guid: 62b9c2587851c92419697b09c5381cc8,
+        type: 3}
+      propertyPath: WeaponController
+      value: 
+      objectReference: {fileID: 14024815}
+    - target: {fileID: 2256604568118988487, guid: 62b9c2587851c92419697b09c5381cc8,
+        type: 3}
+      propertyPath: rotateSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256604568118988487, guid: 62b9c2587851c92419697b09c5381cc8,
+        type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 213305876}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62b9c2587851c92419697b09c5381cc8, type: 3}
 --- !u!4 &3883080849477413611 stripped

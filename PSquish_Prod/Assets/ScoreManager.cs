@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
 
-    private GameObject scoreCounter;
-    int score = 0;
+    private static GameObject scoreCounter;
+   
 
     void Start()
     {
@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
         
     }
 
-    public void Increase(int amount)
+    public static void Increase(int amount)
     {
         SoundManagerScript.PlayOneShot("coin");
         Debug.LogFormat("Increasing score by {0}" , amount);
@@ -33,7 +33,7 @@ public class ScoreManager : MonoBehaviour
         scoreCounter.GetComponentInChildren<Text>().text = score.ToString();
     }
 
-    public void Set(int amount)
+    public static void Set(int amount)
     {
         Debug.LogFormat("Setting score to {0}", amount);
         int score = int.Parse(scoreCounter.GetComponentInChildren<Text>().text);
@@ -41,7 +41,7 @@ public class ScoreManager : MonoBehaviour
         scoreCounter.GetComponentInChildren<Text>().text = score.ToString();
     }
 
-    public string Get()
+    public static string Get()
     {
         Debug.LogFormat("Current score is {0}", scoreCounter.GetComponentInChildren<Text>().text);
         return scoreCounter.GetComponentInChildren<Text>().text;

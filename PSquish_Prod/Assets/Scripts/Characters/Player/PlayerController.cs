@@ -33,7 +33,7 @@ namespace ProfessorSquish.Characters.Player
         private bool wasAttackButtonPressed = false;
         public float delayAttackTime = 0.5f;
 
-        public int playerHealth;
+        public PlayerHealth playerHealth;
        
         private CharacterController cont;
 
@@ -46,6 +46,8 @@ namespace ProfessorSquish.Characters.Player
         private Animator animate;
         public Inventory inventory;
         public PlayerAmmo ammoSlider;
+
+		private Vector3 respPosition;
         
         void Awake()
         {
@@ -60,8 +62,9 @@ namespace ProfessorSquish.Characters.Player
         {
 
             animate = GetComponent<Animator>();
-            playerHealth = 100;
+            //playerHealth = new PlayerHealth(200);
             inventory = new Inventory();
+			respPosition = transform.position;
             
 
         }
@@ -207,6 +210,13 @@ namespace ProfessorSquish.Characters.Player
 
 			transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, new Vector3(move.x, 0f, move.z), moveSpeed * rotateSpeed * Time.deltaTime, 0f));
 
+            animate.SetFloat("playerLife", playerHealth.currentHealth);
+
+			if(transform.position.y <= -100)
+			{
+				respawn();
+			}
+
         }
 
         public void fireWeapon()
@@ -238,12 +248,12 @@ namespace ProfessorSquish.Characters.Player
             switch (collision.gameObject.tag)
             {
                 case "EnemyBullet":
-                    playerHealth--;
-					print(playerHealth);
+                    playerHealth.TakeDamage(1);
+					Debug.Log(playerHealth.currentHealth);
                     break;
                 case "Bullet":
-                    playerHealth--;
-					print(playerHealth);
+                    playerHealth.TakeDamage(1);
+					Debug.Log(playerHealth.currentHealth);
                     break;
                 default:
                     break;
@@ -254,13 +264,15 @@ namespace ProfessorSquish.Characters.Player
             switch (collided.gameObject.tag)
             {
                 case "EnemyBullet":
-                    playerHealth--;
+                    playerHealth.TakeDamage(1);
+                    Debug.Log(playerHealth.currentHealth);
                     break;
                 case "Bullet":
-                    playerHealth--;
+                    playerHealth.TakeDamage(1);
+                    Debug.Log(playerHealth.currentHealth);
                     break;
                 case "Health":
-                    playerHealth += 10;
+                    playerHealth.Add(10);
                     playerHealthSlider.Add(10);
                     Destroy(collided.gameObject);
                     break;
@@ -295,6 +307,15 @@ namespace ProfessorSquish.Characters.Player
             }
 
         }
+
+		public void respawn()
+		{
+			//print(Time.deltaTime);
+			//yield return new WaitForSeconds(5);
+			transform.position = respPosition;
+			playerHealth.Reset(); 
+			//return("RESPAWNED");
+		}
 
     }
 
