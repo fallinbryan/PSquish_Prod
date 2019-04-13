@@ -21,6 +21,8 @@ TagManager:
   - WeaponTesla
   - EnemyBullet
   - Muzzle
+  - DifficultySlider
+  - EnemyManager
   layers:
   - Default
   - TransparentFX

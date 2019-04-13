@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!136 &1300049976750483165
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788012502844268622}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &3187392855295746102
 CharacterController:
   m_ObjectHideFlags: 0
@@ -37,23 +51,9 @@ MonoBehaviour:
   jumpForce: 7.6
   delayJumpTime: 0.5
   delayAttackTime: 0.5
-  playerHealth: 0
+  playerHealth: {fileID: 0}
   isPaused: 0
   ammoSlider: {fileID: 0}
---- !u!136 &1300049976750483165
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788012502844268622}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3788012502844237442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64,6 +64,10 @@ PrefabInstance:
     - target: {fileID: 100044, guid: 0656a508c8553d0419ab048f128500db, type: 3}
       propertyPath: m_Name
       value: PSQuish_Prod_Player Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 100044, guid: 0656a508c8553d0419ab048f128500db, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 400044, guid: 0656a508c8553d0419ab048f128500db, type: 3}
       propertyPath: m_LocalPosition.x

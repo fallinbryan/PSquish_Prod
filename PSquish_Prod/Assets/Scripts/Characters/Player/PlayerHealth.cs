@@ -8,9 +8,13 @@ namespace ProfessorSquish.Characters.Player
 
     public class PlayerHealth : MonoBehaviour
     {
-        private const int startingHealth = 100;
+        private const int startingHealth = 200;
         public int currentHealth;
-        public Slider healthSlider;
+        public Slider healthSlider;                         
+        bool damaged;
+        public Image damageImage;                                  
+        public float flashSpeed = 5f;                              
+        public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     
 
         public PlayerHealth(int hp)
         {
@@ -26,11 +30,25 @@ namespace ProfessorSquish.Characters.Player
 
         void Update()
         {
+           
+            if (damaged)
+            {
+               Debug.Log("Changing damageImage color");
+               damageImage.color = flashColour;
+            }
+           
+            else
+            {
+                damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+            }
 
+          
+            damaged = false;
         }
 
         public void TakeDamage(int amount)
         {
+            damaged = true;
             Debug.Log("Taking damage: " + amount);
             currentHealth -= amount;
             healthSlider.value = currentHealth;

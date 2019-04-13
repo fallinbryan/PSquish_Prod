@@ -6,16 +6,19 @@ public class ScoreManager : MonoBehaviour
 {
 
     private static GameObject scoreCounter;
-   
+    private static GameObject highestScoreCounter;
+
+
 
     void Start()
     {
         Debug.Log("Score Counter Started");
         scoreCounter = GameObject.Find("ScoreCounter");
+        highestScoreCounter = GameObject.Find("highestScoreCounter");
+        highestScoreCounter.GetComponentInChildren<Text>().text = PlayerPrefs.GetInt("highscore", 0).ToString();
        
     }
-
-   
+       
     void Update()
     {
         
@@ -31,6 +34,18 @@ public class ScoreManager : MonoBehaviour
         score += amount;
 
         scoreCounter.GetComponentInChildren<Text>().text = score.ToString();
+
+        int highestScore = int.Parse(highestScoreCounter.GetComponentInChildren<Text>().text);
+
+        if (score > highestScore)
+        {
+            Debug.LogFormat("New Highest Score ! {0}", score);
+
+            PlayerPrefs.SetInt("highscore", score);
+
+            highestScoreCounter.GetComponentInChildren<Text>().text = score.ToString();
+        }
+               
     }
 
     public static void Set(int amount)

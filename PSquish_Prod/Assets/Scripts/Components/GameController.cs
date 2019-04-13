@@ -9,7 +9,7 @@ namespace ProfessorSquish.Components
 
     public class GameController : MonoBehaviour
     {
-        private bool isPaused;
+        public bool isPaused;
         private bool isInventoryShown;
 
         public CameraController cameraController;

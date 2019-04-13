@@ -248,10 +248,14 @@ namespace ProfessorSquish.Characters.Player
             switch (collision.gameObject.tag)
             {
                 case "EnemyBullet":
+                    Debug.Log(" in EnemyBullet --------------------");
+                    SoundManagerScript.PlayOneShot("damage1");
                     playerHealth.TakeDamage(1);
 					Debug.Log(playerHealth.currentHealth);
                     break;
                 case "Bullet":
+                    Debug.Log(" in Bullet --------------------");
+                    SoundManagerScript.PlayOneShot("damage1");
                     playerHealth.TakeDamage(1);
 					Debug.Log(playerHealth.currentHealth);
                     break;
@@ -264,11 +268,15 @@ namespace ProfessorSquish.Characters.Player
             switch (collided.gameObject.tag)
             {
                 case "EnemyBullet":
+                    Debug.Log(" in EnemyBullet2 --------------------");
                     playerHealth.TakeDamage(1);
+                    SoundManagerScript.PlayOneShot("damage1");
                     Debug.Log(playerHealth.currentHealth);
                     break;
                 case "Bullet":
+                    Debug.Log(" in Bullet2 --------------------");
                     playerHealth.TakeDamage(1);
+                    SoundManagerScript.PlayOneShot("damage1");
                     Debug.Log(playerHealth.currentHealth);
                     break;
                 case "Health":

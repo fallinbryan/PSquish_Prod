@@ -22,6 +22,7 @@ namespace ProfessorSquish.Components.Audio
             sounds.Add("acidSpray");
             sounds.Add("lightning");
             sounds.Add("standardFire");
+            sounds.Add("damage1");
 
             //http://soundbible.com/2026-Kid-Laugh.html
             sounds.Add("Kid_Laugh");
