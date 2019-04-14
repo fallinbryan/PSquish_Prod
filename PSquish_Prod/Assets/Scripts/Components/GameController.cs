@@ -31,6 +31,9 @@ namespace ProfessorSquish.Components
         public GameObject helpPanel;
 
         [SerializeField]
+        public GameObject helpPanelPage2;
+
+        [SerializeField]
         public GameObject storyAudio;
 
         [SerializeField]
@@ -49,13 +52,17 @@ namespace ProfessorSquish.Components
         [SerializeField]
         public GameObject difficultySlider;
 
+        private GameObject currentHelpPanel;
+
         void Awake()
         {
             inventoryButton = GameObject.Find("InventoryButton");
             resumeButton = GameObject.Find("ResumeButton");
             difficultySlider = GameObject.Find("DifficultySlider");
-            helpPanel = GameObject.Find("HelpPanel");
+            //helpPanel = GameObject.Find("HelpPanel");
             storyAudio = GameObject.Find("Mute");
+            player = GameObject.Find("Player").GetComponent<PlayerController>();
+            currentHelpPanel = helpPanel;
         }
 
 
@@ -65,25 +72,25 @@ namespace ProfessorSquish.Components
 
             ShowStartMenu();
             HideHelpMenu();
-            
+
             currentWeponImageLoc = CurrentWeaponPanel.transform;
 
-            foreach (Image image in CurrentWeaponPanel.GetComponentsInChildren<Image>()) 
+            foreach (Image image in CurrentWeaponPanel.GetComponentsInChildren<Image>())
             {
-                if(image.gameObject.tag != "WeaponBase" && image.gameObject.tag != "Untagged")
+                if (image.gameObject.tag != "WeaponBase" && image.gameObject.tag != "Untagged")
                 {
                     image.transform.position = currentWeponImageLoc.transform.position;
                     image.enabled = false;
 
                 }
-                
+
             }
         }
 
         private void ShowStartMenu()
         {
             resumeButton.GetComponentInChildren<Text>().text = "Play!";
-            ShowMainMenu(); 
+            ShowMainMenu();
             inventoryButton.SetActive(false);
             pauseGame();
         }
@@ -108,6 +115,7 @@ namespace ProfessorSquish.Components
 
                 foreach (Image image in CurrentWeaponPanel.GetComponentsInChildren<Image>())
                 {
+
                     if (image.gameObject.tag != "WeaponBase" && image.gameObject.tag != "Untagged")
                     {
                         image.enabled = false;
@@ -120,9 +128,8 @@ namespace ProfessorSquish.Components
                 }
 
             }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (Input.GetKeyDown(KeyCode.Alpha2) && player.WeaponController.isModeEnabled("Flames"))
             {
-               
 
                 foreach (Image image in CurrentWeaponPanel.GetComponentsInChildren<Image>())
                 {
@@ -138,8 +145,9 @@ namespace ProfessorSquish.Components
                 }
 
 
+
             }
-            if (Input.GetKeyDown(KeyCode.Alpha3))
+            if (Input.GetKeyDown(KeyCode.Alpha3) && player.WeaponController.isModeEnabled("AcidSpray"))
             {
 
                 foreach (Image image in CurrentWeaponPanel.GetComponentsInChildren<Image>())
@@ -157,7 +165,7 @@ namespace ProfessorSquish.Components
 
 
             }
-            if (Input.GetKeyDown(KeyCode.Alpha4))
+            if (Input.GetKeyDown(KeyCode.Alpha4) && player.WeaponController.isModeEnabled("Lightning"))
             {
 
                 foreach (Image image in CurrentWeaponPanel.GetComponentsInChildren<Image>())
@@ -204,7 +212,7 @@ namespace ProfessorSquish.Components
             HideInventoryMenu();
         }
 
-       
+
 
         private void pauseGame()
         {
@@ -235,20 +243,24 @@ namespace ProfessorSquish.Components
 
         public void ShowHelpMenu()
         {
-            MutePlayHelpMenuStory();
-            helpPanel.SetActive(true);
+            //MutePlayHelpMenuStory();
+            //currentHelpPanel = Instantiate(helpPanel, GameObject.Find("Canvas").gameObject.transform);
+            currentHelpPanel.SetActive(true);
         }
 
         public void HideHelpMenu()
         {
-            helpPanel.SetActive(false);
             SoundManagerScript.StopSound("Story");
+            //helpPanel.SetActive(false);
+            currentHelpPanel = helpPanel;
+            helpPanel.SetActive(false);
+            helpPanelPage2.SetActive(false);
         }
 
         public void MutePlayHelpMenuStory()
         {
             Debug.LogFormat(" MutePlayHelpMenuStory {0}", SoundManagerScript.GetSoundResource("Story").isPlaying);
-            
+
             if (SoundManagerScript.GetSoundResource("Story").isPlaying)
             {
                 SoundManagerScript.StopSound("Story");
@@ -264,7 +276,11 @@ namespace ProfessorSquish.Components
         public void HideMainMenu()
         {
             MainMenu.gameObject.SetActive(false);
+            if(currentHelpPanel)
+            {
             HideHelpMenu();
+
+            }
         }
 
         public void HideInventoryMenu()
@@ -288,17 +304,17 @@ namespace ProfessorSquish.Components
 
         public void attemptUpgrade()
         {
-           Dictionary<string,List<string>> result = player.WeaponController.UpgradeWeapon(upgradePanel);
-            foreach(KeyValuePair<string, List<string>> kvp in result)
+            Dictionary<string, List<string>> result = player.WeaponController.UpgradeWeapon(upgradePanel);
+            foreach (KeyValuePair<string, List<string>> kvp in result)
             {
-                if(kvp.Key != "Fail")
+                if (kvp.Key != "Fail")
                 {
                     dialogController.Dialog($"Upgraded weapon to {kvp.Key} mode");
-                    foreach(string item in kvp.Value)
+                    foreach (string item in kvp.Value)
                     {
-                        foreach(Image image in upgradePanel.GetComponentsInChildren<Image>())
+                        foreach (Image image in upgradePanel.GetComponentsInChildren<Image>())
                         {
-                            if(image.gameObject.tag == item)
+                            if (image.gameObject.tag == item)
                             {
                                 Destroy(image.gameObject);
                             }
@@ -308,7 +324,7 @@ namespace ProfessorSquish.Components
                 }
                 else
                 {
-                    if(kvp.Value != null)
+                    if (kvp.Value != null)
                     {
                         dialogController.Dialog(kvp.Value[0]);
 
@@ -316,6 +332,41 @@ namespace ProfessorSquish.Components
                 }
             }
         }
+
+        public void HelpPanelNextButtonClick() {
+            switch (currentHelpPanel.gameObject.tag) {
+                case "PrimaryHelpPanel":
+
+                    currentHelpPanel.SetActive(false);
+                    currentHelpPanel = helpPanelPage2;
+                    currentHelpPanel.SetActive(true);
+
+                    break;
+                case "WeponUpgradeHelpPanel":
+                    //do nothing
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        public void HelpPanelPrevButtonClick() {
+            switch (currentHelpPanel.gameObject.tag)
+            {
+                case "PrimaryHelpPanel":
+                    //do nothing
+                    break;
+                case "WeponUpgradeHelpPanel":
+                    currentHelpPanel.SetActive(false);
+                    currentHelpPanel = helpPanel;
+                    currentHelpPanel.SetActive(true);
+                    break;
+                default:
+                    break;
+            }
+        }
+
 
     }
 }

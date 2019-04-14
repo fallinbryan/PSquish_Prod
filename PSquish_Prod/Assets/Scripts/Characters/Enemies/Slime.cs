@@ -50,15 +50,13 @@ namespace ProfessorSquish.Characters.Enemies
 
         private float difficultyModifier = 2f;
 
-        public void onDifficultyChange(Slider slider)
-        {
-            this.maxHP = (int)((slider.value / 2) * this.maxHP);
-            this.currentHP = this.maxHP;
-            this.attackSpeed *= (slider.value / 2);
-        }
+
         // Start is called before the first frame update
         void Start()
         {
+            var enemyMgr = GameObject.FindWithTag("EnemyManager");
+            var mgr = enemyMgr.GetComponent<EnemyManager>();
+            this.difficultyModifier = mgr.difficultyModifier;
             Player = GameObject.FindWithTag("Player");
             agent = GetComponent<NavMeshAgent>();
             ani = GetComponent<Animator>();
@@ -116,7 +114,7 @@ namespace ProfessorSquish.Characters.Enemies
                     if (pc != null)
                     {
                         health = pc.playerHealth.currentHealth;
-                        ammo = pc.WeaponController.WeaponAmmo;
+                        ammo = pc.WeaponController.GetAmmo();
                     }
                     if (HealthDropPrefab == null)
                     {
@@ -169,8 +167,11 @@ namespace ProfessorSquish.Characters.Enemies
                     attackAnimateTime = 0;
                     attackReleased = false;
                     ani.SetBool("isAttacking", false);
-                    var bullet = Instantiate(Projectile, Muzzle.transform.position, Muzzle.transform.rotation) as GameObject;
-                    bullet.GetComponent<Rigidbody>().velocity = bullet.transform.TransformDirection(Vector3.forward * 100);
+                    if(Muzzle)
+                    {
+                        var bullet = Instantiate(Projectile, Muzzle.transform.position, Muzzle.transform.rotation) as GameObject;
+                        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.TransformDirection(Vector3.forward * 100);
+                    }
                 }
             }
             if (Vector3.Distance(transform.position, Player.transform.position) <= maxPursueDistance)

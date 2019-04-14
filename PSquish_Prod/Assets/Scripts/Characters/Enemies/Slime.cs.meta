@@ -3,7 +3,14 @@ guid: f47647f685d7696468f92c8ff7713dcd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Player: {instanceID: 0}
+  - Muzzle: {instanceID: 0}
+  - Projectile: {instanceID: 0}
+  - HealthDropPrefab: {instanceID: 0}
+  - AmmoDropPrefab: {instanceID: 0}
+  - dischrg: {instanceID: 0}
+  - deathCloud: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

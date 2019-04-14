@@ -72,6 +72,8 @@ namespace ProfessorSquish.Characters.Player
         // Update is called once per frame
         void Update()
         {
+            ammoSlider.Set(WeaponController.GetAmmo());
+
             Vector3 forward = cam.transform.forward;
             forward.y = 0;
             forward = forward.normalized;
@@ -140,18 +142,13 @@ namespace ProfessorSquish.Characters.Player
                 animate.SetBool("isRunning", false);
             }
 
-
-
             if(wasAttackButtonPressed)
             {
                 attackTimeCounter += (Time.deltaTime);
                 if(attackTimeCounter > delayAttackTime)
                 {
-                    fireWeapon();
-        
-                    //stopFireWeapon();
-
-
+                    FireWeapon();
+           
                 }
                 
             }
@@ -159,46 +156,40 @@ namespace ProfessorSquish.Characters.Player
 			if(Input.GetKeyDown(KeyCode.Alpha1) && !wasAttackButtonPressed)
             {
                 WeaponController.SetActiveWeaponMode("standard");
-                // audio SFX added by jamal
-                //SoundManagerScript.PlaySound("standardFire");
+               
             }
 			if (Input.GetKeyDown(KeyCode.Alpha2) && !wasAttackButtonPressed)
             {
                 WeaponController.SetActiveWeaponMode("Flames");
-                // audio SFX added by jamal
-                //SoundManagerScript.PlaySound("flames");
+              
 
             }
 			if (Input.GetKeyDown(KeyCode.Alpha3) && !wasAttackButtonPressed)
             {
                 WeaponController.SetActiveWeaponMode("AcidSpray");
-                // audio SFX added by jamal
-                //SoundManagerScript.PlaySound("acidSpray");
 
             }
 			if (Input.GetKeyDown(KeyCode.Alpha4) && !wasAttackButtonPressed)
             {
                 WeaponController.SetActiveWeaponMode("Lightning");
-                // audio SFX added by jamal
-                //SoundManagerScript.PlaySound("lightning");
             }
 
-            if (Input.GetButtonDown("Fire1") /* && playerWeapon.ammo > 0 */ && !isPaused && !wasAttackButtonPressed)
+            if (Input.GetButtonDown("Fire1") && !isPaused && !wasAttackButtonPressed && WeaponController.GetAmmoAvaliable() > 0)
             {
-                // audio SFX added by jamal
-                //SoundManagerScript.PlaySound("standardFire");
-
+                
                 animate.SetBool("isAttacking", true);
                 wasAttackButtonPressed = true;
-                 // trigger attack animation
-                
-               // stopFireWeapon();
+               
             }
+
+            if (WeaponController.GetAmmoAvaliable() <= 0)
+            {
+                stopFireWeapon();
+            }
+            
             if (Input.GetButtonUp("Fire1"))
             {
-                // audio SFX added by jamal
-                //SoundManagerScript.PlaySound("standardFire");
-
+               
                 stopFireWeapon();
                 animate.SetBool("isAttacking", false);
                 attackTimeCounter = 0;
@@ -219,9 +210,14 @@ namespace ProfessorSquish.Characters.Player
 
         }
 
-        public void fireWeapon()
+        private void FireWeapon()
         {
 
+            int ammo = WeaponController.FireWeapon();
+
+
+     
+            
             RaycastHit hitInfo;
             if(Physics.SphereCast(transform.position, 2.0f, transform.forward, out hitInfo, 30.0f ))
             {
@@ -232,10 +228,8 @@ namespace ProfessorSquish.Characters.Player
                 }
 
             }
-            
-            int ammo = WeaponController.FireWeapon();
-                       
-            ammoSlider.Set(ammo);
+        
+
         }
 
         public void stopFireWeapon()
@@ -280,13 +274,14 @@ namespace ProfessorSquish.Characters.Player
                     Debug.Log(playerHealth.currentHealth);
                     break;
                 case "Health":
-                    playerHealth.Add(10);
-                    playerHealthSlider.Add(10);
+                    playerHealth.Add(1);
+                    playerHealthSlider.Add(1);
                     Destroy(collided.gameObject);
                     break;
                 case "Ammo":
-                    WeaponController.WeaponAmmo += 20;
-                    ammoSlider.Set(WeaponController.WeaponAmmo);
+
+                    WeaponController.AddAmmo(20);
+                    ammoSlider.Set(WeaponController.GetAmmo());
                     Destroy(collided.gameObject);
                     break;
                 case "FlameFuelTank":
@@ -313,8 +308,28 @@ namespace ProfessorSquish.Characters.Player
                 default:
                     break;
             }
+		}
+			void OnParticleCollision(GameObject other)
+			{
+				switch (other.gameObject.tag)
+				{
+				case "EnemyBullet":
+					Debug.Log(" in EnemyBullet2 --------------------");
+					playerHealth.TakeDamage(1);
+					SoundManagerScript.PlayOneShot("damage1");
+					Debug.Log(playerHealth.currentHealth);
+					break;
+				case "Bullet":
+					Debug.Log(" in Bullet2 --------------------");
+					playerHealth.TakeDamage(1);
+					SoundManagerScript.PlayOneShot("damage1");
+					Debug.Log(playerHealth.currentHealth);
+					break;
+				default:
+					break;
+				}
 
-        }
+          }
 
 		public void respawn()
 		{

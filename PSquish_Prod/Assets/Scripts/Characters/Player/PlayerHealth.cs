@@ -8,7 +8,7 @@ namespace ProfessorSquish.Characters.Player
 
     public class PlayerHealth : MonoBehaviour
     {
-        private const int startingHealth = 200;
+        private const int startingHealth = 20;
         public int currentHealth;
         public Slider healthSlider;                         
         bool damaged;
@@ -44,6 +44,11 @@ namespace ProfessorSquish.Characters.Player
 
           
             damaged = false;
+
+			if(currentHealth > startingHealth)
+			{
+				currentHealth = startingHealth;
+			}
         }
 
         public void TakeDamage(int amount)

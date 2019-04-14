@@ -23,6 +23,8 @@ TagManager:
   - Muzzle
   - DifficultySlider
   - EnemyManager
+  - WeponUpgradeHelpPanel
+  - PrimaryHelpPanel
   layers:
   - Default
   - TransparentFX

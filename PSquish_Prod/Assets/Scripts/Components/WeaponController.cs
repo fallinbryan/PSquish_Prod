@@ -45,9 +45,6 @@ namespace ProfessorSquish.Components
 
         public int projectileVelocity;
 
-        [Range(0, 1000)]
-        public int WeaponAmmo = 100;
-
         public int WeaponExp = 0;
 
         [Range(0f, 1f)]
@@ -59,9 +56,9 @@ namespace ProfessorSquish.Components
         private Dictionary<string, bool> enabledModes;
         private Dictionary<string, int> modeUpgradeThresholds;
         private Dictionary<string, string> sounds;
+        private Dictionary<string, int> ammo;
         private string ActiveWeaponMode;
         private bool weaponIsFiring = false;
-
 
 
         void Awake()
@@ -125,6 +122,14 @@ namespace ProfessorSquish.Components
                 { "Lightning", "lightning" }
             };
 
+            ammo = new Dictionary<string, int>
+            {
+                { "standard", 999999999 },
+                { "Flames", 1000 },
+                { "AcidSpray",1000 },
+                { "Lightning", 1000 }
+            };
+
         }
 
         // Update is called once per frame
@@ -135,9 +140,10 @@ namespace ProfessorSquish.Components
             if (expSlider)
             {
                 expSlider.value = WeaponExp;
+
                 if (weaponIsFiring)
                 {
-                    WeaponAmmo -= 1;
+                   
                     FireWeapon();
 
                 }
@@ -152,16 +158,32 @@ namespace ProfessorSquish.Components
 
         public bool SetActiveWeaponMode(string mode)
         {
-            // if(enabledModes[mode])
-            // {
-            ActiveWeaponMode = mode;
-
-            // }
+            if(enabledModes[mode] && !weaponIsFiring)
+             {
+                ActiveWeaponMode = mode;
+            }
             return enabledModes[mode];
+        }
+
+      
+
+        public void AddAmmo(int amount)
+        {
+            ammo[ActiveWeaponMode] += amount;
+        }
+
+        public int GetAmmo()
+        {
+            return ammo[ActiveWeaponMode];
         }
 
         public int FireWeapon()
         {
+
+            if (ammo[ActiveWeaponMode] > 0)
+            {
+
+            ammo[ActiveWeaponMode] -= 1;
 
             if (!SoundManagerScript.GetSoundResource(sounds[ActiveWeaponMode]).isPlaying)
             {
@@ -176,7 +198,7 @@ namespace ProfessorSquish.Components
                     WeaponEmission = Instantiate(Projectile, Muzzle.transform.position, Muzzle.transform.rotation) as GameObject;
                     WeaponEmission.GetComponent<Rigidbody>().velocity = WeaponEmission.transform.TransformDirection(Vector3.forward * projectileVelocity);
                     attackTime = 0;
-                    WeaponAmmo -= 10;
+                    ammo[ActiveWeaponMode] -= 10;
                 }
             }
 
@@ -186,7 +208,9 @@ namespace ProfessorSquish.Components
                 WeaponEmission[ActiveWeaponMode].Play(true);
             }
 
-            return WeaponAmmo;
+           }
+
+            return ammo[ActiveWeaponMode];
         }
         public void StopFiringWeapon()
         {
@@ -204,6 +228,11 @@ namespace ProfessorSquish.Components
                 WeaponEmission[ActiveWeaponMode].Stop();
             }
 
+        }
+
+        public int GetAmmoAvaliable()
+        {
+            return ammo[ActiveWeaponMode];
         }
 
         public Dictionary<string, List<string>> UpgradeWeapon(GameObject upgradePanel)
@@ -289,6 +318,11 @@ namespace ProfessorSquish.Components
             }
 
             return returnVal;
+        }
+
+        public bool isModeEnabled(string mode)
+        {
+            return enabledModes[mode];
         }
     }
 }

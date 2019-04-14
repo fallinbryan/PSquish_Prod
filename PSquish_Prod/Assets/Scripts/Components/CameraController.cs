@@ -12,6 +12,7 @@ namespace ProfessorSquish.Components
         public Transform pivot;
         public bool isGamePaused = false;
         private Vector3 offset;
+		private bool isFiring;
 
         [Range(0f, 100f)]
         public float minZoom = 10.0f;
@@ -31,8 +32,7 @@ namespace ProfessorSquish.Components
             offset = target.position - transform.position;
 
             pivot.transform.position = target.transform.position; // move the pivot to the player
-			//pivot.transform.parent = target.transform; //This is what's messing up your rotation stuff. Reverting this back because 
-															//the new camera rig is harder to work with than the old one, and it's going to take a lot more work to figure that out.
+
 
             transform.LookAt(target);
 
@@ -44,7 +44,8 @@ namespace ProfessorSquish.Components
         // Update is called once per frame
         void Update()
         {
-            //get x of mouse
+
+			//get x of mouse
             if (!isGamePaused)
             {
 
@@ -52,9 +53,21 @@ namespace ProfessorSquish.Components
 
 				float playerForward = Input.GetAxis("Vertical");
 
-				//target.Rotate(horizontal); // rotate target					
-				pivot.Rotate(horizontal); // rotate pivot
+				if (Input.GetButtonDown("Fire1")){
+					pivot.transform.parent = target.transform;
+					isFiring = true;
+				} else if (Input.GetButtonUp("Fire1"))
+				{
+					pivot.transform.parent = null;
+					isFiring = false;
+				}
 
+				if(isFiring && Input.GetAxis("Horizontal") == 0){
+					target.Rotate(horizontal); // rotate target					
+				}else {
+					pivot.Rotate(horizontal); // rotate pivot
+				}
+					
                 float vertical = Input.GetAxis("Mouse Y") * rotationSpeed;
                 pivot.Rotate(-vertical, 0, 0);
 
