@@ -60,9 +60,10 @@ namespace ProfessorSquish.Components
             resumeButton = GameObject.Find("ResumeButton");
             difficultySlider = GameObject.Find("DifficultySlider");
             //helpPanel = GameObject.Find("HelpPanel");
-            storyAudio = GameObject.Find("Mute");
+            storyAudio = GameObject.Find("MutePlay");
             player = GameObject.Find("Player").GetComponent<PlayerController>();
             currentHelpPanel = helpPanel;
+            SoundManagerScript.setVolume(0.4f);
         }
 
 

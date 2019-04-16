@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace ProfessorSquish.Components.Audio
 {
-    public class AudioVolume : MonoBehaviour
+    public  class AudioVolume : MonoBehaviour
     {
         public Slider Volume;
         public AudioSource myAudio;
@@ -43,6 +43,7 @@ namespace ProfessorSquish.Components.Audio
 
         public void AdjustVolume()
         {
+            SoundManagerScript.setVolume(Volume.value);
             myAudio.volume = Volume.value;
             myAudio1.volume = Volume.value;
             myAudio2.volume = Volume.value;

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ProfessorSquish.Components.Audio
 {
@@ -7,11 +8,20 @@ namespace ProfessorSquish.Components.Audio
     public class SoundManagerScript : MonoBehaviour
     {
         static AudioSource audioSrc;
+       
 
         HashSet<string> sounds = new HashSet<string>();
         private static Dictionary<string, AudioSource> soundResources = new Dictionary<string, AudioSource>();
         private static Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>();
+        public static float Volume;
 
+        public static void setVolume(float vol)
+        {
+            if (vol > 0.0f && vol < 1.0f)
+            {
+                Volume = vol;
+            }
+        }
         // Start is called before the first frame update
         void Start()
         {
@@ -58,19 +68,23 @@ namespace ProfessorSquish.Components.Audio
 
         public static void PlayOneShot(string clip)
         {
-
+            
             soundResources[clip].Stop();
             Debug.LogFormat("Playing clip {0}", clip);
-            audioSrc.PlayOneShot(audioClips[clip]);
+            audioSrc.PlayOneShot(audioClips[clip],Volume);
+
+            
 
         }
 
         public static void PlayLongSound(string clip)
         {
-
+            //Slider Volume = GameObject.Find("VolumeSlider").GetComponent<Slider>();
             if (soundResources[clip].isPlaying) return;
             Debug.LogFormat("Playing Independent clip {0}", clip);
+            soundResources[clip].volume = Volume;
             soundResources[clip].Play();
+            //audioSrc.PlayOneShot(audioClips[clip], Volume.value);
 
         }
 

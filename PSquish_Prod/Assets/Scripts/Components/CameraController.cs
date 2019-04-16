@@ -53,7 +53,7 @@ namespace ProfessorSquish.Components
 
 				float playerForward = Input.GetAxis("Vertical");
 
-				if (Input.GetButtonDown("Fire1")){
+				if (Input.GetButtonDown("Fire1") && !( Input.GetAxis("Vertical") > 0f || Input.GetAxis("Horizontal") > 0f )) {
 					pivot.transform.parent = target.transform;
 					isFiring = true;
 				} else if (Input.GetButtonUp("Fire1"))
